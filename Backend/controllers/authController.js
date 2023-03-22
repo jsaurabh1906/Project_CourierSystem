@@ -8,10 +8,10 @@ export const registerController = async (req, res) => {
       req.body;
     //validations
     if (!firstName) {
-      return res.send({ error: "First Name is Required" });
+      return res.send({ message: "First Name is Required" });
     }
     if (!lastName) {
-      return res.send({ error: "Last Name is Required" });
+      return res.send({ message: "Last Name is Required" });
     }
     if (!email) {
       return res.send({ message: "Email is Required" });
