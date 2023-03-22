@@ -1,0 +1,40 @@
+.portfolio-section {
+    background-color: #f2f2f2;
+    padding: 50px 0;
+    background-color: #f1ef22;
+    background-image: linear-gradient( 135deg, #31f9fc 10%, #584cd9 100%);
+    
+  
+  }
+  
+  .portfolio-section h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .portfolio-section p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .portfolio-section .text-justify {
+    text-align: justify;
+  }
+  
+  .portfolio-section ul {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .portfolio-section li {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .portfolio-section button {
+    margin-top: 20px;
+  }
+   

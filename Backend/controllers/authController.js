@@ -101,6 +101,7 @@ export const loginController = async (req, res) => {
         email: user.email,
         mobileNo: user.mobileNo,
         adddress: user.address,
+        role: user.role,
       },
       token,
     });
@@ -112,6 +113,73 @@ export const loginController = async (req, res) => {
       error,
     });
   }
+};
+
+export const forgotPasswordController = (req, res) => {
+  // const { email } = req.body;
+  // User.findOne({ email }).then((user) => {
+  //   if (!user) {
+  //     return res.status(400).json({ message: "User not found" });
+  //   }
+  //   // Generate a random 6-digit OTP
+  //   const otp = Math.floor(100000 + Math.random() * 900000).toString();
+  //   // Save the OTP and its expiry time in the user document
+  //   user.otp = otp;
+  //   user.otpExpiresAt = Date.now() + 10 * 60 * 1000; // 10 minutes
+  //   user.save().then(() => {
+  //     // Send the OTP to the user's email address
+  //     const transporter = nodemailer.createTransport({
+  //       service: "gmail",
+  //       auth: {
+  //         user: process.env.GMAIL_USER,
+  //         pass: process.env.GMAIL_PASSWORD,
+  //       },
+  //     });
+  //     const mailOptions = {
+  //       from: process.env.GMAIL_USER,
+  //       to: email,
+  //       subject: "Your OTP to reset your password",
+  //       text: `Your OTP to reset your password is ${otp}. It will expire in 10 minutes.`,
+  //     };
+  //     transporter.sendMail(mailOptions, (err, info) => {
+  //       if (err) {
+  //         console.error(err);
+  //         return res.status(500).json({ message: "Failed to send OTP" });
+  //       }
+  //       console.log(`OTP sent to ${email}: ${otp}`);
+  //       res.status(200).json({ message: "OTP sent successfully" });
+  //     });
+  //   });
+  // });
+};
+
+//reset-password
+export const resetPasswordController = (req, res) => {
+  const { email, otp, newPassword } = req.body;
+
+  User.findOne({ email }).then((user) => {
+    if (!user) {
+      return res.status(400).json({ message: "User not found" });
+    }
+
+    if (user.otp !== otp || user.otpExpiresAt < Date.now()) {
+      return res.status(400).json({ message: "Invalid OTP" });
+    }
+
+    // Hash the new password
+    bcrypt.hash(newPassword, 10, (err, hash) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ message: "Failed to hash password" });
+      }
+
+      // Update the user's password
+      user.password = hash;
+      user.save().then(() => {
+        res.status(200).json({ message: "Password reset successfully" });
+      });
+    });
+  });
 };
 
 //test controller

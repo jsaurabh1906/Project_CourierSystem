@@ -1,10 +1,23 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-//import { GiShoppingBag } from "react-icons/gi";
+import { useAuth } from "../../context/auth";
+import toast from "react-hot-toast";
+import SpeedPost from "./../../pages/ServicesPages/SpeedPost";
+import Hyperlocal from "./../../pages/ServicesPages/Hyperlocal";
 
 const Header = () => {
+  const [auth, setAuth] = useAuth();
+  const handleLogout = () => {
+    setAuth({
+      ...auth,
+      user: null,
+      token: "",
+    });
+    localStorage.removeItem("auth");
+    toast.success("Logout Successfully");
+  };
   return (
-    <div>
+    <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <button
@@ -33,26 +46,153 @@ const Header = () => {
                   Pricing
                 </NavLink>
               </li>
+
               <li className="nav-item dropdown">
-                <NavLink to="#" className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  dropdown
+                <NavLink
+                  className="nav-link dropdown-toggle"
+                  to="#"
+                  role="button"
+                  id="navbarDropdownMenuLink"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Services
                 </NavLink>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><NavLink to="/pricing" className="dropdown-item">Pricing 1</NavLink></li>
-                  <li><NavLink to="/pricing" className="dropdown-item">Pricing 2</NavLink></li>
-                  <li><NavLink to="/pricing" className="dropdown-item">Pricing 3</NavLink></li>
+                <ul className="dropdown-menu">
+                  <li>
+                    <NavLink className="dropdown-item" to="/B2Bshipping">
+                      B2B Shipping
+                    </NavLink>
+                  </li>
+
+                  <li>
+                    <NavLink className="dropdown-item" to="/Hyperlocal">
+                      Hyperlocal
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="dropdown-item" to="/Postship">
+                      Postship
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="dropdown-item" to="/SpeedPost">
+                      SpeedPost
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="dropdown-item" to="/Tracking">
+                      Tracking
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="dropdown-item" to="/Portfolio">
+                      Portfolio
+                    </NavLink>
+                  </li>
                 </ul>
               </li>
-              <li className="nav-item">
-                <NavLink to="/register" className="nav-link">
-                  Register
+
+              <li className="nav-item dropdown">
+                <NavLink
+                  className="nav-link dropdown-toggle"
+                  to="#"
+                  role="button"
+                  id="navbarDropdownMenuLink"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Features
                 </NavLink>
+                <ul className="dropdown-menu">
+                  <li>
+                    <NavLink className="dropdown-item" to="/AffordablePrice">
+                      Affordable Price
+                    </NavLink>
+                  </li>
+
+                  <li>
+                    <NavLink className="dropdown-item" to="/CashOnDelivery">
+                      Cash On Delivery
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className="dropdown-item"
+                      to="/ECommerceIntigration"
+                    >
+                      ECommerce Integration
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="dropdown-item" to="/EmailSMS">
+                      Email SMS
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="dropdown-item" to="/Packaging">
+                      Packaging
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="dropdown-item" to="/ServiceablePincode">
+                      Serviceable Pincode
+                    </NavLink>
+                  </li>
+                </ul>
               </li>
-              <li className="nav-item">
-                <NavLink to="/login" className="nav-link">
-                  Login
-                </NavLink>
-              </li>
+
+              {!auth?.user ? (
+                <>
+                  <li className="nav-item">
+                    <NavLink to="/register" className="nav-link">
+                      Register
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink to="/login" className="nav-link">
+                      Login
+                    </NavLink>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li className="nav-item dropdown">
+                    <NavLink
+                      className="nav-link dropdown-toggle"
+                      to="#"
+                      role="button"
+                      id="navbarDropdownMenuLink"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      {auth?.user?.firstName}
+                    </NavLink>
+
+                    <ul className="dropdown-menu">
+                      <li>
+                        <NavLink
+                          to={`/dashboard/${
+                            auth?.user?.role === "superAdmin" ? "admin" : "user"
+                          }`}
+                          className="dropdown-item"
+                        >
+                          Dashboard
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          onClick={handleLogout}
+                          to="/login"
+                          className="dropdown-item"
+                        >
+                          Logout
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </li>
+                </>
+              )}
               <li className="nav-item">
                 <NavLink to="/cart" className="nav-link">
                   Cart (0)
@@ -61,8 +201,8 @@ const Header = () => {
             </ul>
           </div>
         </div>
-      </nav>{" "}
-    </div>
+      </nav>
+    </>
   );
 };
 
