@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
+import React, { useState } from "react";
+//import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +15,7 @@ const CreateVehicle = () => {
   const [chassisNumber, setChassisNumber] = useState("");
   const [plateNumber, setPlateNumber] = useState("");
   //  const [shipping, setShipping] = useState("");
-  const vehicleTypeOptions = ["car", "truck", "van", "suv", "motorcycle"];
+  //const vehicleTypeOptions = ["car", "truck", "van", "suv", "motorcycle"];
   const navigate = useNavigate();
 
   //create product function

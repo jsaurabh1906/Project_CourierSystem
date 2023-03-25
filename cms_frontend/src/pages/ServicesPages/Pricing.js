@@ -5,7 +5,7 @@ import cre from "../images/cre.png";
 import postship from "../images/postship.png";
 import multiuser from "../images/multiuser.png";
 import Layout from "../../components/Layout/Layout";
-import { NavLink } from 'react-router-dom';
+//import { NavLink } from 'react-router-dom';
 const Pricing = () => {
   const plans = [
     {
