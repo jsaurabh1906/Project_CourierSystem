@@ -6,9 +6,10 @@ import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoute.js";
 import officeRoutes from "./routes/officeRoutes.js";
 import vehicleRoutes from "./routes/vehicleRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 import cors from "cors";
 import formidableMiddleware from "express-formidable-v2";
-
+import bodyParser from "body-parser";
 //configure env
 dotenv.config();
 
@@ -23,14 +24,18 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(formidableMiddleware());
+app.use(bodyParser.json({ extende: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+
 //routes
 app.use("/api/auth", authRoutes);
 app.use("/api/office", officeRoutes);
 app.use("/api/vehicle", vehicleRoutes);
+app.use("/api/user", userRoutes);
 
 //rest api
 app.get("/", (req, res) => {
-  res.send("<h1>Welcome to ecommerce app</h1>");
+  res.send("<h1>Welcome to ASP COURIERS</h1>");
 });
 
 //PORT

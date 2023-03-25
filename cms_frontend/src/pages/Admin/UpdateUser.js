@@ -1,36 +1,37 @@
-import { useState, useEffect } from "react";
-
+import React, { useState, useEffect } from "react";
+//import axios from "axios";
 import {
   FormGroup,
   FormControl,
   InputLabel,
   Input,
-  Button,
-  styled,
   Typography,
+  styled,
+  Button,
 } from "@mui/material";
+import AdminMenu from "../../components/Layout/AdminMenu";
 import { useNavigate, useParams } from "react-router-dom";
-import { getUsers, editUser } from "./UserService";
+import { updateUser, getUsers } from "./UserService";
 
 const initialValue = {
-  name: "",
-  username: "",
+  firstName: "",
+  lastName: "",
   email: "",
-  phone: "",
+  mobileNo: "",
+  address: "",
 };
 
 const Container = styled(FormGroup)`
     width: 50%;
-    margin: 5% 0 0 25%;
-    & > div {
-        margin-top: 20px
+    margin: 5% 0 0  10%;
+     & > div {
+        margin-top: 20px;
 `;
 
-const EditUser = () => {
+const UpdateUser = () => {
   const [user, setUser] = useState(initialValue);
-  const { name, username, email, phone } = user;
+  const { firstName, lastName, email, mobileNo, address } = user;
   const { id } = useParams();
-
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -39,73 +40,94 @@ const EditUser = () => {
 
   const loadUserDetails = async () => {
     const response = await getUsers(id);
+    console.log(response);
     setUser(response.data);
   };
-
-  const editUserDetails = async () => {
-    const response = await editUser(id, user);
-    navigate("/all");
-  };
-
   const onValueChange = (e) => {
-    console.log(e.target.value);
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
+  const updateUserDetails = async (e) => {
+    //t
+    try {
+      const response = await updateUser(id, user);
+      navigate("/dashboard/admin/users");
+    } catch (error) {}
+  };
+
   return (
-    <Container injectFirst>
-      <Typography variant="h4">Edit Information</Typography>
-      <FormControl>
-        <InputLabel htmlFor="my-input">Name</InputLabel>
-        <Input
-          onChange={(e) => onValueChange(e)}
-          name="name"
-          value={name}
-          id="my-input"
-          aria-describedby="my-helper-text"
-        />
-      </FormControl>
-      <FormControl>
-        <InputLabel htmlFor="my-input">Username</InputLabel>
-        <Input
-          onChange={(e) => onValueChange(e)}
-          name="username"
-          value={username}
-          id="my-input"
-          aria-describedby="my-helper-text"
-        />
-      </FormControl>
-      <FormControl>
-        <InputLabel htmlFor="my-input">Email</InputLabel>
-        <Input
-          onChange={(e) => onValueChange(e)}
-          name="email"
-          value={email}
-          id="my-input"
-          aria-describedby="my-helper-text"
-        />
-      </FormControl>
-      <FormControl>
-        <InputLabel htmlFor="my-input">Phone</InputLabel>
-        <Input
-          onChange={(e) => onValueChange(e)}
-          name="phone"
-          value={phone}
-          id="my-input"
-          aria-describedby="my-helper-text"
-        />
-      </FormControl>
-      <FormControl>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => editUserDetails()}
-        >
-          Edit User
-        </Button>
-      </FormControl>
-    </Container>
+    <>
+      {" "}
+      <div className="container-fluid m-3 p-3">
+        <div className="row">
+          <div className="col-md-2">
+            <AdminMenu />
+          </div>
+          <div className="col-md-10">
+            <Container injectFirst>
+              <Typography variant="h4">Update User</Typography>
+              <FormControl>
+                <InputLabel htmlFor="my-input">First Name</InputLabel>
+                <Input
+                  onChange={(e) => onValueChange(e)}
+                  name="firstName"
+                  value={user.firstName}
+                  id="my-input"
+                />
+              </FormControl>
+
+              <FormControl>
+                <InputLabel htmlFor="my-input">Last</InputLabel>
+                <Input
+                  onChange={(e) => onValueChange(e)}
+                  name="lastName"
+                  value={user.lastName}
+                  id="my-input"
+                />
+              </FormControl>
+              <FormControl>
+                <InputLabel htmlFor="my-input">Email</InputLabel>
+                <Input
+                  onChange={(e) => onValueChange(e)}
+                  name="email"
+                  value={email}
+                  id="my-input"
+                />
+              </FormControl>
+              <FormControl>
+                <InputLabel htmlFor="my-input">Mobile No.</InputLabel>
+                <Input
+                  name="mobileNo"
+                  value={mobileNo}
+                  id="my-input"
+                  onChange={(e) => onValueChange(e)}
+                />
+              </FormControl>
+              <FormControl>
+                <InputLabel htmlFor="my-input">Address</InputLabel>
+                <Input
+                  name="address"
+                  value={address}
+                  id="my-input"
+                  onChange={(e) => onValueChange(e)}
+                />
+              </FormControl>
+              <FormControl>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => updateUserDetails()}
+                >
+                  Update User
+                </Button>
+              </FormControl>
+            </Container>
+          </div>
+          <div></div>
+        </div>
+      </div>
+    </>
   );
 };
 
-export default EditUser;
+export default UpdateUser;

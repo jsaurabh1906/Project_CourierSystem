@@ -35,6 +35,9 @@ import CreateVehicle from "./pages/SystemUser/CreateVehicle";
 import CreateDriver from "./pages/SystemUser/CreateDriver";
 import Vehicles from "./pages/SystemUser/Vehicles";
 import UpdateVehicle from "./pages/SystemUser/UpdateVehicle";
+import AddUser from "./pages/Admin/AddUser";
+import AllUsers from "./pages/Admin/AllUsers";
+import UpdateUser from "./pages/Admin/UpdateUser";
 
 function App() {
   return (
@@ -49,6 +52,9 @@ function App() {
           </Route>
           <Route path="/dashboard" element={<AdminRoute />}>
             <Route path="admin" element={<AdminDashboard />} />
+            <Route path="admin/addUser" element={<AddUser />} />
+            <Route path="admin/users" element={<AllUsers />} />
+            <Route path="admin/updateuser/:id" element={<UpdateUser />} />
           </Route>
           <Route path="/dashboard" element={<SystemUserRoute />}>
             <Route path="systemUser" element={<SystemUserDashboard />} />
