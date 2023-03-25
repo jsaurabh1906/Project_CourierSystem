@@ -1,0 +1,6 @@
+need to create a react Form in two divisions aside
+first div include Sender Information Details and collects following data :
+sender name , email, mobile number, type of courier, mode of transport, location, customer type, approx weight, full address
+
+second div contains receiver information :
+name, mobile no, email, location , address

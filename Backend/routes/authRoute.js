@@ -6,7 +6,7 @@ import {
   forgotPasswordController,
   resetPasswordController,
 } from "../controllers/authController.js";
-import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
+import { isAdmin, isDeliveryValet, isSystemUser, requireSignIn } from "../middlewares/authMiddleware.js";
 
 //router object
 const router = express.Router();
@@ -28,10 +28,15 @@ router.get("/user-auth", requireSignIn, (req, res) => {
 router.get("/admin-auth", requireSignIn, isAdmin, (req, res) => {
   res.status(200).send({ ok: true });
 });
+router.get("/systemUser-auth", requireSignIn, isSystemUser, (req, res) => {
+  res.status(200).send({ ok: true });
+});
+router.get("/deliveryValet-auth", requireSignIn, isDeliveryValet, (req, res) => {
+  res.status(200).send({ ok: true });
+});
 
 //router.post("/forgot-password", forgotPasswordController);
 
 //router.post("reset-password", resetPasswordController);
-
 
 export default router;

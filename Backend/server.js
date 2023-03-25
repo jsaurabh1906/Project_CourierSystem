@@ -4,7 +4,10 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoute.js";
+import officeRoutes from "./routes/officeRoutes.js";
+import vehicleRoutes from "./routes/vehicleRoutes.js";
 import cors from "cors";
+import formidableMiddleware from "express-formidable-v2";
 
 //configure env
 dotenv.config();
@@ -19,9 +22,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
-
+app.use(formidableMiddleware());
 //routes
 app.use("/api/auth", authRoutes);
+app.use("/api/office", officeRoutes);
+app.use("/api/vehicle", vehicleRoutes);
 
 //rest api
 app.get("/", (req, res) => {
