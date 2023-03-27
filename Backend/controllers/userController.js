@@ -64,7 +64,7 @@ export const deleteUser = async (request, response) => {
   }
 };
 
-/////
+///// ADD dELIVERYvALET cONTROLLER
 export const addDriverController = async (req, res) => {
   try {
     const driver = req.body;

@@ -10,9 +10,10 @@ import {
   Button,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { addDriver } from "./DriverService";
-import SystemUserMenu from "./../../components/Layout/SystemUserMenu";
-import Layout from "./../../components/Layout/Layout";
+import { addOffice } from "./OfficeService";
+import SystemUserMenu from "../../components/Layout/SystemUserMenu";
+import Layout from "../../components/Layout/Layout";
+
 const initialValue = {
   firstName: "",
   lastName: "",
@@ -77,29 +78,28 @@ const inputStyle = {
   color: "#fef",
 };
 
-const AddDriver = () => {
-  const [driver, setDriver] = useState(initialValue);
-  const { firstName, lastName, email, mobileNo, address, licenseNumber, role } =
-    driver;
+const AddOffice = () => {
+  const [office, setOffice] = useState(initialValue);
+  const { name, address, contact, email } = office;
 
   let navigate = useNavigate();
 
   const onValueChange = (e) => {
-    setDriver({ ...driver, [e.target.name]: e.target.value });
+    setOffice({ ...office, [e.target.name]: e.target.value });
   };
 
-  const addDriverDetails = async (e) => {
+  const addOfficeDetails = async (e) => {
     //t
     try {
-      await addDriver(driver);
-      navigate("/dashboard/systemUser/drivers");
+      await addOffice(office);
+      navigate("/dashboard/systemUser/offices");
     } catch (error) {}
   };
 
   return (
-    <Layout title={"Dashboard - Add Drivers"}>
+    <Layout title={"Dashboard - Add Office"}>
       {" "}
-      <div className="container-fluid  ">
+      <div className="container-fluid ">
         <div className="row">
           <div className="col-md-12">
             <SystemUserMenu />
@@ -115,36 +115,36 @@ const AddDriver = () => {
                   fontWeight: "Bold",
                 }}
               >
-                Add Driver
+                Add Office
               </Typography>
               <FormControl>
                 <InputLabel htmlFor="my-input" style={labelStyle}>
-                  First Name
+                  Office Name
                 </InputLabel>
                 <Input
                   style={inputStyle}
                   onChange={(e) => onValueChange(e)}
-                  name="firstName"
-                  value={firstName}
+                  name="name"
+                  value={name}
                   id="my-input"
                 />
               </FormControl>
 
               <FormControl>
                 <InputLabel htmlFor="my-input" style={labelStyle}>
-                  Last
+                  Address
                 </InputLabel>
                 <Input
                   style={inputStyle}
                   onChange={(e) => onValueChange(e)}
-                  name="lastName"
-                  value={lastName}
+                  name="address"
+                  value={address}
                   id="my-input"
                 />
               </FormControl>
               <FormControl>
                 <InputLabel htmlFor="my-input" style={labelStyle}>
-                  Email
+                  Office Email
                 </InputLabel>
                 <Input
                   style={inputStyle}
@@ -156,17 +156,17 @@ const AddDriver = () => {
               </FormControl>
               <FormControl>
                 <InputLabel htmlFor="my-input" style={labelStyle}>
-                  Mobile No.
+                  Contact No.
                 </InputLabel>
                 <Input
                   style={inputStyle}
-                  name="mobileNo"
-                  value={mobileNo}
+                  name="contact"
+                  value={contact}
                   id="my-input"
                   onChange={(e) => onValueChange(e)}
                 />
               </FormControl>
-              <FormControl>
+              {/* <FormControl>
                 <InputLabel htmlFor="my-input" style={labelStyle}>
                   Address
                 </InputLabel>
@@ -177,20 +177,8 @@ const AddDriver = () => {
                   id="my-input"
                   onChange={(e) => onValueChange(e)}
                 />
-              </FormControl>
-              <FormControl>
-                <InputLabel htmlFor="my-input" style={labelStyle}>
-                  License Number
-                </InputLabel>
-                <Input
-                  style={inputStyle}
-                  name="licenseNumber"
-                  value={licenseNumber}
-                  id="my-input"
-                  onChange={(e) => onValueChange(e)}
-                />
-              </FormControl>
-              <FormControl>
+              </FormControl> */}
+              {/* <FormControl>
                 <InputLabel htmlFor="my-input" style={labelStyle}>
                   Role
                 </InputLabel>
@@ -202,15 +190,15 @@ const AddDriver = () => {
                   hidden
                   onChange={(e) => onValueChange(e)}
                 />
-              </FormControl>
+              </FormControl> */}
               <FormControl>
                 <Button
                   style={buttonStyle}
                   variant="contained"
                   color="primary"
-                  onClick={() => addDriverDetails()}
+                  onClick={() => addOfficeDetails()}
                 >
-                  Add Driver
+                  Add Office
                 </Button>
               </FormControl>
             </Container>
@@ -222,4 +210,4 @@ const AddDriver = () => {
   );
 };
 
-export default AddDriver;
+export default AddOffice;

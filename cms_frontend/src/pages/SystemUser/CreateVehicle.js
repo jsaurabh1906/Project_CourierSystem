@@ -72,7 +72,7 @@ const CreateVehicle = () => {
 
   return (
     <Layout title={"Dashboard - Create Vehicle"}>
-      <div className="container-fluid p-4 pt-0">
+      <div className="container-fluid  pt-0">
         <div className="row">
           <div className="">
             <SystemUserMenu />

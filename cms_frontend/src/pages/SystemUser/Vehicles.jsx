@@ -47,7 +47,7 @@ const Vehicles = () => {
 
   return (
     <Layout title={"Dashboard - Create Vehicle"}>
-      <div className="container-fluid m-3 p-3">
+      <div className="container-fluid ">
         <div className="row">
           <div className="">
             <SystemUserMenu />

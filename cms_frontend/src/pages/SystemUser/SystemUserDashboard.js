@@ -6,7 +6,7 @@ const SystemUserDashboard = () => {
   const [auth] = useAuth();
   return (
     <Layout>
-      <div className="container-fluid  mt-0 p-3">
+      <div className="container-fluid  mt-0 p-0">
         <div className="row">
           <div className="col">
             <SystemUserMenu />

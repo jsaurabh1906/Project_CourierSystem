@@ -30,7 +30,7 @@ import SystemUserRoute from "./components/Routes/SystemUserRoute";
 import DeliveryValetRoute from "./components/Routes/DeliveryValetRoute";
 import SystemUserDashboard from "./pages/SystemUser/SystemUserDashboard";
 import DeliveryValetDashboard from "./pages/DeliveryValet/DeliveryValetDashboard";
-import CreateOffice from "./pages/SystemUser/CreateOffice";
+import AddOffice from "./pages/SystemUser/AddOffice";
 import CreateVehicle from "./pages/SystemUser/CreateVehicle";
 import Vehicles from "./pages/SystemUser/Vehicles";
 import UpdateVehicle from "./pages/SystemUser/UpdateVehicle";
@@ -40,6 +40,8 @@ import UpdateUser from "./pages/Admin/UpdateUser";
 import AddDriver from "./pages/SystemUser/AddDriver";
 import AllDrivers from "./pages/SystemUser/AllDrivers";
 import UpdateDriver from "./pages/SystemUser/UpdateDriver";
+import AllOffices from "./pages/SystemUser/AllOffices";
+import UpdateOffice from "./pages/SystemUser/UpdateOffice";
 function App() {
   return (
     <>
@@ -61,7 +63,12 @@ function App() {
 
           <Route path="/dashboard" element={<SystemUserRoute />}>
             <Route path="systemUser" element={<SystemUserDashboard />} />
-            <Route path="systemUser/create-office" element={<CreateOffice />} />
+            <Route path="systemUser/addoffice" element={<AddOffice />} />
+            <Route path="systemUser/offices" element={<AllOffices />} />
+            <Route
+              path="systemUser/updateoffice/:id"
+              element={<UpdateOffice />}
+            />
             <Route
               path="systemUser/create-vehicle"
               element={<CreateVehicle />}

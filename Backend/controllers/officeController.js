@@ -1,140 +1,65 @@
 import officeModel from "../models/officeModel.js";
-//import fs from "fs";
-import slugify from "slugify";
-
-export const createOfficeController = async (req, res) => {
+// add office
+export const addOfficeController = async (req, res) => {
   try {
-    const { name, address, email, contact } = req.fields;
+    const office = req.body;
+    const newOffice = new officeModel(office);
 
-    //alidation
-    switch (true) {
-      case !name:
-        return res.status(500).send({ error: "Name is Required" });
-      case !address:
-        return res.status(500).send({ error: "address is Required" });
-      case !email:
-        return res.status(500).send({ error: "email is Required" });
-      case !contact:
-        return res.status(500).send({ error: "contact is Required" });
-    }
-
-    const offices = new officeModel({ ...req.fields, slug: slugify(name) });
-
-    await offices.save();
+    await newOffice.save();
     res.status(201).send({
       success: true,
       message: "Office Created Successfully",
-      offices,
+      newOffice,
     });
   } catch (error) {
     console.log(error);
     res.status(500).send({
       success: false,
       error,
-      message: "Error in crearing office",
+      message: "Error in creating Office",
     });
   }
 };
 
-//delete controller
-export const deleteOfficeController = async (req, res) => {
+//getOfficesController
+export const getOfficesController = async (request, response) => {
   try {
-    await officeModel.findByIdAndDelete(req.params.pid);
-    res.status(200).send({
-      success: true,
-      message: "office Deleted successfully",
-    });
+    const offices = await officeModel.find();
+    response.status(200).json(offices);
   } catch (error) {
-    console.log(error);
-    res.status(500).send({
-      success: false,
-      message: "Error while deleting office",
-      error,
-    });
+    response.status(500).json({ message: error.message });
   }
 };
 
-//upate officea
-export const updateOfficeController = async (req, res) => {
+//get office by id
+export const getOfficeByIdController = async (request, response) => {
   try {
-    const { name, address, email, contact } = req.fields;
-
-    //alidation
-    switch (true) {
-      case !name:
-        return res.status(500).send({ error: "Name is Required" });
-      case !address:
-        return res.status(500).send({ error: "address is Required" });
-      case !email:
-        return res.status(500).send({ error: "email is Required" });
-      case !contact:
-        return res.status(500).send({ error: "contact is Required" });
-    }
-
-    const offices = await officeModel.findByIdAndUpdate(
-      req.params.pid,
-      { ...req.fields, slug: slugify(name) },
-      { new: true }
-    );
-   
-    await offices.save();
-    res.status(201).send({
-      success: true,
-      message: "office Updated Successfully",
-      offices,
-    });
+    const office = await officeModel.findById(request.params.id);
+    response.status(200).json(office);
   } catch (error) {
-    console.log(error);
-    res.status(500).send({
-      success: false,
-      error,
-      message: "Error in Updte office",
-    });
+    response.status(500).json({ message: error.message });
   }
 };
 
-//get all offices
+//delete office id
 
-export const getOfficeController = async (req, res) => {
+export const deleteOfficeController = async (request, response) => {
   try {
-    const offices = await officeModel
-      .find({})
-
-      .select("-photo")
-      .limit(12)
-      .sort({ createdAt: -1 });
-    res.status(200).send({
-      success: true,
-      counTotal: offices.length,
-      message: "ALloffices ",
-      offices,
-    });
+    await officeModel.deleteOne({ _id: request.params.id });
+    response.status(201).json("Office deleted Successfully");
   } catch (error) {
-    console.log(error);
-    res.status(500).send({
-      success: false,
-      message: "Erorr in getting offices",
-      error: error.message,
-    });
+    response.status(409).json({ message: error.message });
   }
 };
 
-// get single office
-export const getSingleOfficeController = async (req, res) => {
-  try {
-    const office = await officeModel.findOne({ slug: req.params.slug });
+export const updateOfficeController = async (request, response) => {
+  let office = request.body;
 
-    res.status(200).send({
-      success: true,
-      message: "Single office Fetched",
-      office,
-    });
+  const updateOffice = new officeModel(office);
+  try {
+    await officeModel.updateOne({ _id: request.params.id }, updateOffice);
+    response.status(201).json(updateOffice);
   } catch (error) {
-    console.log(error);
-    res.status(500).send({
-      success: false,
-      message: "Eror while getitng single office",
-      error,
-    });
+    response.status(409).json({ message: error.message });
   }
 };

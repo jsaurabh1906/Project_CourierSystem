@@ -12,10 +12,7 @@ const officeSchema = new mongoose.Schema(
       required: false,
       match: { role: "systemUser" }, //need to check properly
     },
-    slug: {
-      type: String,
-      required: true,
-    },
+    
   },
   { timestamps: true }
 );
