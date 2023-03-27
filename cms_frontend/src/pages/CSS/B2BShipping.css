@@ -1,69 +1,67 @@
 .b2b-shipping {
-    background: linear-gradient(
-      to right bottom,
-      #f7bb97,
-      #dd5e89,
-      #8e72dc,
-      #3e8ece,
-      #00b8a9
-    );
-    color: #fff;
-    padding: 4rem 0;
-  }
-  
-  .b2b-shipping h2 {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #271067;
-    text-transform:capitalize;
-  }
-  
-  .b2b-shipping p {
-    font-size: 1.8rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #131871;
-    font-style: italic;
-  }
-  
-  /* .b2b-shipping hr {
+  background: linear-gradient(
+    to right bottom,
+    #f7bb97,
+    #dd5e89,
+    #8e72dc,
+    #3e8ece,
+    #00b8a9
+  );
+  color: #fff;
+  padding: 4rem 0;
+}
+
+.b2b-shipping h2 {
+  font-size: 3.5rem;
+  font-weight: bolder !important;
+  color: #271067 !important;
+  font-family: Verdana, sans-serif !important;
+}
+
+.b2b-shipping p {
+  font-size: 2rem;
+  font-weight: 600 !important;
+  line-height: 1.5;
+  color: #fff !important;
+  font-style: italic;
+}
+
+/* .b2b-shipping hr {
     background-color: #03152d;
     border-top: 1px solid #03152d;
     margin: 2rem 0;
     color: #271067;
   } */
-  
-  .b2b-shipping ul {
-    list-style: disc;
-    padding-left: 1.3rem;
-    
-  }
-  
-  .b2b-shipping li {
-    font-size: 1.25rem;
-    font-weight: 350;
-    line-height: 1.5;
-  }
-  
-  .b2b-shipping h3 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #271067;
-  }
-  .b2b-shipping #p {
-    font-size: 1.3rem;
-    font-style: normal;
-    color: #ffff;
-  }
 
-  .imgcol{
-    border-radius: 50rem;
-    z-index: 1;
-    display: block;
-    display: block;
-    position: relative;
+.b2b-shipping ul {
+  list-style: disc;
+  padding-left: 1.3rem;
+}
 
-    margin: 0 auto;
-    filter: grayscale(25%);
+.b2b-shipping li {
+  font-size: 1.25rem;
+  font-weight: 350;
+  line-height: 1.5;
+}
 
-  }
+.b2b-shipping h3 {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: #271067;
+}
+.b2b-shipping #p {
+  font-size: 1.3rem;
+  font-style: normal;
+  color: #ffff;
+}
+
+.imgcol {
+  border-radius: 50rem;
+  z-index: 1;
+  display: block;
+  display: block;
+  position: relative;
+
+  margin: 0 auto;
+  filter: grayscale(25%);
+}

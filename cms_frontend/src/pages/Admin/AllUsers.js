@@ -53,10 +53,10 @@ const AllUsers = () => {
   return (
     <Container maxWidth="xl" sx={{ py: 3 }}>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={2}>
+        <Grid item xs={12}>
           <AdminMenu />
         </Grid>
-        <Grid item xs={12} md={10}>
+        <Grid item xs={12}>
           <StyledTable>
             <TableHead>
               <THead>

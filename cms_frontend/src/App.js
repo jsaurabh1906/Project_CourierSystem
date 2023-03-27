@@ -32,13 +32,14 @@ import SystemUserDashboard from "./pages/SystemUser/SystemUserDashboard";
 import DeliveryValetDashboard from "./pages/DeliveryValet/DeliveryValetDashboard";
 import CreateOffice from "./pages/SystemUser/CreateOffice";
 import CreateVehicle from "./pages/SystemUser/CreateVehicle";
-import CreateDriver from "./pages/SystemUser/CreateDriver";
 import Vehicles from "./pages/SystemUser/Vehicles";
 import UpdateVehicle from "./pages/SystemUser/UpdateVehicle";
 import AddUser from "./pages/Admin/AddUser";
 import AllUsers from "./pages/Admin/AllUsers";
 import UpdateUser from "./pages/Admin/UpdateUser";
-
+import AddDriver from "./pages/SystemUser/AddDriver";
+import AllDrivers from "./pages/SystemUser/AllDrivers";
+import UpdateDriver from "./pages/SystemUser/UpdateDriver";
 function App() {
   return (
     <>
@@ -50,12 +51,14 @@ function App() {
           <Route path="/dashboard" element={<PrivateRoute />}>
             <Route path="user" element={<Dashboard />} />
           </Route>
+
           <Route path="/dashboard" element={<AdminRoute />}>
             <Route path="admin" element={<AdminDashboard />} />
             <Route path="admin/addUser" element={<AddUser />} />
             <Route path="admin/users" element={<AllUsers />} />
             <Route path="admin/updateuser/:id" element={<UpdateUser />} />
           </Route>
+
           <Route path="/dashboard" element={<SystemUserRoute />}>
             <Route path="systemUser" element={<SystemUserDashboard />} />
             <Route path="systemUser/create-office" element={<CreateOffice />} />
@@ -65,7 +68,12 @@ function App() {
             />
             <Route path="systemUser/vehicles" element={<Vehicles />} />
             <Route path="systemUser/vehicle/:_id" element={<UpdateVehicle />} />
-            <Route path="systemUser/create-driver" element={<CreateDriver />} />
+            <Route path="systemUser/adddriver" element={<AddDriver />} />
+            <Route path="systemUser/drivers" element={<AllDrivers />} />
+            <Route
+              path="systemUser/updatedriver/:id"
+              element={<UpdateDriver />}
+            />
           </Route>
           <Route path="/dashboard" element={<DeliveryValetRoute />}>
             <Route path="deliveryValet" element={<DeliveryValetDashboard />} />

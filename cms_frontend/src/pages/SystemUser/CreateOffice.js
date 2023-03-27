@@ -49,10 +49,10 @@ const CreateOffice = () => {
     <Layout title={"Dashboard - Create Office"}>
       <div className="container-fluid m-3 p-3">
         <div className="row">
-          <div className="col-md-3">
+          <div className="">
             <SystemUserMenu />
           </div>
-          <div className="col-md-9">
+          <div className="">
             <h1>Manage Offices</h1>
             {/* <div classname="mb-3">
                 <select

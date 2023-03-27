@@ -8,23 +8,19 @@
      }
   
   .PostShip-content-box {
-    margin-bottom: 50px;
     width: 80%;
     /* background-color: aqua; */
-    padding: 1em;
+   display: flexbox;
+   align-content: center;
+
     
   }
 
-  .PostShip-content-box h1{
-    /* padding-left: 40px; */
-    font-weight: bold;
-    font-style: italic;
-    color: #5746b8;
-  }
-
   .PostShip-content-box p{
-    font-weight: 700;
+    font-weight: 500;
+    font-size: small;
     color: aliceblue;
+ 
   }
   
   .btn-box {
@@ -108,6 +104,18 @@
   text-align: center;
   background-color: rgb(172, 201, 212);
 }
+.PostShip-content-box h1{
+  /* padding-left: 40px; */
+  font-size: 2.5rem;
+  font-weight: bolder !important;
+  color: #271067 !important;
+  justify-content: center;
+  padding-top: 20%;
+  font-family: Verdana, sans-serif !important;
+
+  /* font-family: Verdana, sans-serif !important; */
+ }
+
 
 
 /* CSS for small screens */

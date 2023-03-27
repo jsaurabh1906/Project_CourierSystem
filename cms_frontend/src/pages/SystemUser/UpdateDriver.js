@@ -9,9 +9,10 @@ import {
   styled,
   Button,
 } from "@mui/material";
-import AdminMenu from "../../components/Layout/AdminMenu";
 import { useNavigate, useParams } from "react-router-dom";
-import { updateUser, getUsers } from "./UserService";
+import { updateDriver, getDrivers } from "./DriverService";
+import SystemUserMenu from "./../../components/Layout/SystemUserMenu";
+import Layout from "../../components/Layout/Layout";
 
 const initialValue = {
   firstName: "",
@@ -19,6 +20,8 @@ const initialValue = {
   email: "",
   mobileNo: "",
   address: "",
+  licenseNumber: "",
+  role: "deliveryValet",
 };
 
 const Container = styled(FormGroup)`
@@ -28,50 +31,51 @@ const Container = styled(FormGroup)`
         margin-top: 20px;
 `;
 
-const UpdateUser = () => {
-  const [user, setUser] = useState(initialValue);
-  const { firstName, lastName, email, mobileNo, address } = user;
+const UpdateDriver = () => {
+  const [driver, setDriver] = useState(initialValue);
+  const { firstName, lastName, email, mobileNo, address, licenseNumber, role } =
+    driver;
   const { id } = useParams();
   let navigate = useNavigate();
 
   useEffect(() => {
-    loadUserDetails();
+    loadDriverDetails();
   }, []);
 
-  const loadUserDetails = async () => {
-    const response = await getUsers(id);
+  const loadDriverDetails = async () => {
+    const response = await getDrivers(id);
     console.log(response);
-    setUser(response.data);
+    setDriver(response.data);
   };
   const onValueChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    setDriver({ ...driver, [e.target.name]: e.target.value });
   };
 
-  const updateUserDetails = async (e) => {
+  const updateDriverDetails = async (e) => {
     //t
     try {
-      const response = await updateUser(id, user);
-      navigate("/dashboard/admin/users");
+      const response = await updateDriver(id, driver);
+      navigate("/dashboard/systemUser/drivers");
     } catch (error) {}
   };
 
   return (
-    <>
+    <Layout>
       {" "}
       <div className="container-fluid m-3 p-3">
         <div className="row">
           <div className="col">
-            <AdminMenu />
+            <SystemUserMenu />
           </div>
           <div className="">
             <Container injectFirst>
-              <Typography variant="h4">Update User</Typography>
+              <Typography variant="h4">Update Driver</Typography>
               <FormControl>
                 <InputLabel htmlFor="my-input">First Name</InputLabel>
                 <Input
                   onChange={(e) => onValueChange(e)}
                   name="firstName"
-                  value={user.firstName}
+                  value={driver.firstName}
                   id="my-input"
                 />
               </FormControl>
@@ -81,7 +85,7 @@ const UpdateUser = () => {
                 <Input
                   onChange={(e) => onValueChange(e)}
                   name="lastName"
-                  value={user.lastName}
+                  value={driver.lastName}
                   id="my-input"
                 />
               </FormControl>
@@ -113,12 +117,21 @@ const UpdateUser = () => {
                 />
               </FormControl>
               <FormControl>
+                <InputLabel htmlFor="my-input">License No.</InputLabel>
+                <Input
+                  name="licenseNumber"
+                  value={licenseNumber}
+                  id="my-input"
+                  onChange={(e) => onValueChange(e)}
+                />
+              </FormControl>
+              <FormControl>
                 <Button
                   variant="contained"
                   color="primary"
-                  onClick={() => updateUserDetails()}
+                  onClick={() => updateDriverDetails()}
                 >
-                  Update User
+                  Update Driver
                 </Button>
               </FormControl>
             </Container>
@@ -126,8 +139,8 @@ const UpdateUser = () => {
           <div></div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 
-export default UpdateUser;
+export default UpdateDriver;

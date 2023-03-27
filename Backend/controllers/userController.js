@@ -63,3 +63,68 @@ export const deleteUser = async (request, response) => {
     response.status(409).json({ message: error.message });
   }
 };
+
+/////
+export const addDriverController = async (req, res) => {
+  try {
+    const driver = req.body;
+    const newDriver = new userModel(driver);
+
+    await newDriver.save();
+    res.status(201).send({
+      success: true,
+      message: "Driver Created Successfully",
+      newDriver,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      error,
+      message: "Error in crreating Driver",
+    });
+  }
+};
+
+//get all drivers/deliveryValets
+export const getDriversController = async (request, response) => {
+  try {
+    const drivers = await userModel.find({ role: "deliveryValet" });
+    response.status(200).json(drivers);
+  } catch (error) {
+    response.status(500).json({ message: error.message });
+  }
+};
+
+//getDriverByIdController
+export const getDriverByIdController = async (request, response) => {
+  try {
+    const driver = await userModel.findById(request.params.id);
+    response.status(200).json(driver);
+  } catch (error) {
+    response.status(500).json({ message: error.message });
+  }
+};
+
+//deleteDriverController
+export const deleteDriverController = async (request, response) => {
+  try {
+    await userModel.deleteOne({ _id: request.params.id });
+    response.status(201).json("Driver deleted Successfully");
+  } catch (error) {
+    response.status(409).json({ message: error.message });
+  }
+};
+
+//editDriverController
+export const editDriverController = async (request, response) => {
+  let driver = request.body;
+
+  const editDriver = new userModel(driver);
+  try {
+    await userModel.updateOne({ _id: request.params.id }, editDriver);
+    response.status(201).json(editDriver);
+  } catch (error) {
+    response.status(409).json({ message: error.message });
+  }
+};

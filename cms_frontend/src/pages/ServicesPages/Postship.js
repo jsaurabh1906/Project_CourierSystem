@@ -20,7 +20,7 @@ export default function Postship() {
                     SMS, Email notifications.
                   </p>
                   <div className="btn-box">
-                    <Button variant="primary" href="#">
+                    <Button variant="primary" href="/register">
                       Sign Up Now
                     </Button>
                   </div>

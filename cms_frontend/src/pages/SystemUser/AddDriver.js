@@ -10,29 +10,32 @@ import {
   Button,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { addUser } from "./UserService";
-import AdminMenu from './../../components/Layout/AdminMenu';
+import { addDriver } from "./DriverService";
+import SystemUserMenu from "./../../components/Layout/SystemUserMenu";
+import Layout from "./../../components/Layout/Layout";
 const initialValue = {
   firstName: "",
   lastName: "",
   email: "",
   mobileNo: "",
   address: "",
+  licenseNumber: "",
+  role: "deliveryValet",
 };
 const divStyle = {
- // background: "linear-gradient(to right bottom, #8e72dc, #3e8ece)",
-  // background: 'linear-gradient(to right bottom, #1d2671, #6b1d71, #b11d4c, #ff2f0e, #ffa700)',
-  backgroundColor: "#f9f7f2"
-};  
+  // background: "linear-gradient(to right bottom, #8e72dc, #3e8ece)",
+   //background: 'linear-gradient(to right bottom, #1d2671, #6b1d71, #b11d4c, #ff2f0e, #ffa700)',
+  backgroundColor: "rgb(255 223 246)",
+};
 const formStyle = {
-//background: "linear-gradient(to bottom right, #a2ded0, #f0a5a5)",
-background: 'linear-gradient(to right, #4a00e0, #8e2de2, #c55de4, #f87d87, #ffac9c)',
-   
- padding: "30px",
+  //background: "linear-gradient(to bottom right, #a2ded0, #f0a5a5)",
+  background:   "linear-gradient(to right, #4a00e0, #8e2de2, #c55de4, #f87d87, #ffac9c)",
+
+  padding: "30px",
   borderRadius: "10px",
- // display: "flex",
+  // display: "flex",
   //flexDirection: "column",
- //alignItems: "center",
+  //alignItems: "center",
 };
 
 const buttonStyle = {
@@ -44,7 +47,6 @@ const buttonStyle = {
   borderRadius: "5px",
   cursor: "pointer",
   //alignItems: "center",
-  
 };
 
 const Container = styled(FormGroup)`
@@ -61,53 +63,62 @@ const Container = styled(FormGroup)`
 `;
 const labelStyle = {
   fontSize: "1.5rem",
-  fontWeight:"bold",
-  color:"#fff",
-  paddingBottom:"2px"
+  fontWeight: "bold",
+  color: "#fff",
+  paddingBottom: "2px",
 };
 
-const inputStyle={
-  fontSize:"2rem",
-  color:"#fef",
-}
+const inputStyle = {
+  fontSize: "2rem",
+  color: "#fef",
+};
 
-const AddUser = () => {
-  const [user, setUser] = useState(initialValue);
-  const { firstName, lastName, email, mobileNo, address } = user;
+const AddDriver = () => {
+  const [driver, setDriver] = useState(initialValue);
+  const { firstName, lastName, email, mobileNo, address, licenseNumber, role } =
+    driver;
 
   let navigate = useNavigate();
 
   const onValueChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    setDriver({ ...driver, [e.target.name]: e.target.value });
   };
 
-  const addUserDetails = async (e) => {
+  const addDriverDetails = async (e) => {
     //t
     try {
-      await addUser(user);
-      navigate("/dashboard/admin/users");
+      await addDriver(driver);
+      navigate("/dashboard/systemUser/drivers");
     } catch (error) {}
   };
 
   return (
-    <>
+    <Layout title={"Dashboard - Add Drivers"}>
       {" "}
       <div className="container-fluid m-3 p-3 ">
         <div className="row">
           <div className="col-md-12">
-            <AdminMenu/>
+            <SystemUserMenu />
           </div>
           <div className="col-md m-3 mt-0" style={divStyle}>
             <Container style={formStyle}>
-              <Typography variant="h4" style={{ textAlign: "center" ,color:"#fff",fontStyle:"italic",fontWeight:"Bold"}}>
-                Add User
+              <Typography
+                variant="h4"
+                style={{
+                  textAlign: "center",
+                  color: "#fff",
+                  fontStyle: "italic",
+                  fontWeight: "Bold",
+                }}
+              >
+                Add Driver
               </Typography>
               <FormControl>
                 <InputLabel htmlFor="my-input" style={labelStyle}>
                   First Name
                 </InputLabel>
                 <Input
-                style={inputStyle}
+                  style={inputStyle}
                   onChange={(e) => onValueChange(e)}
                   name="firstName"
                   value={firstName}
@@ -119,7 +130,8 @@ const AddUser = () => {
                 <InputLabel htmlFor="my-input" style={labelStyle}>
                   Last
                 </InputLabel>
-                <Input style={inputStyle}
+                <Input
+                  style={inputStyle}
                   onChange={(e) => onValueChange(e)}
                   name="lastName"
                   value={lastName}
@@ -130,7 +142,8 @@ const AddUser = () => {
                 <InputLabel htmlFor="my-input" style={labelStyle}>
                   Email
                 </InputLabel>
-                <Input style={inputStyle}
+                <Input
+                  style={inputStyle}
                   onChange={(e) => onValueChange(e)}
                   name="email"
                   value={email}
@@ -141,7 +154,8 @@ const AddUser = () => {
                 <InputLabel htmlFor="my-input" style={labelStyle}>
                   Mobile No.
                 </InputLabel>
-                <Input style={inputStyle}
+                <Input
+                  style={inputStyle}
                   name="mobileNo"
                   value={mobileNo}
                   id="my-input"
@@ -152,7 +166,8 @@ const AddUser = () => {
                 <InputLabel htmlFor="my-input" style={labelStyle}>
                   Address
                 </InputLabel>
-                <Input style={inputStyle}
+                <Input
+                  style={inputStyle}
                   name="address"
                   value={address}
                   id="my-input"
@@ -160,11 +175,36 @@ const AddUser = () => {
                 />
               </FormControl>
               <FormControl>
+                <InputLabel htmlFor="my-input" style={labelStyle}>
+                  License Number
+                </InputLabel>
+                <Input
+                  style={inputStyle}
+                  name="licenseNumber"
+                  value={licenseNumber}
+                  id="my-input"
+                  onChange={(e) => onValueChange(e)}
+                />
+              </FormControl>
+              <FormControl>
+                <InputLabel htmlFor="my-input" style={labelStyle}>
+                  Role
+                </InputLabel>
+                <Input
+                  style={inputStyle}
+                  name="role"
+                  value="deliveryValet"
+                  id="my-input"
+                  hidden
+                  onChange={(e) => onValueChange(e)}
+                />
+              </FormControl>
+              <FormControl>
                 <Button
-                 style={buttonStyle}
+                  style={buttonStyle}
                   variant="contained"
                   color="primary"
-                  onClick={() => addUserDetails()}
+                  onClick={() => addDriverDetails()}
                 >
                   Add User
                 </Button>
@@ -174,8 +214,8 @@ const AddUser = () => {
           <div></div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 
-export default AddUser;
+export default AddDriver;

@@ -6,13 +6,13 @@ const SystemUserDashboard = () => {
   const [auth] = useAuth();
   return (
     <Layout>
-      <div className="container-fluid m-3 p-3">
+      <div className="container-fluid  mt-0 p-3">
         <div className="row">
-          <div className="col-md-3">
+          <div className="col">
             <SystemUserMenu />
           </div>
-          <div className="col-md-9">
-            <div className="card w-75 p-3">
+          <div className="c">
+            <div className="systemUsecard w-100">
               <h3>
                 {" "}
                 SystemUser Name : {auth?.user?.firstName} {auth?.user?.lastName}

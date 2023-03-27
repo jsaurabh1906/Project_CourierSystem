@@ -49,10 +49,10 @@ const Vehicles = () => {
     <Layout title={"Dashboard - Create Vehicle"}>
       <div className="container-fluid m-3 p-3">
         <div className="row">
-          <div className="col-md-3">
+          <div className="">
             <SystemUserMenu />
           </div>
-          <div className="col-md-9">
+          <div className="">
             <h1>Manage Vehicles</h1>
             <div>
               <table className="table w-80 m-3">

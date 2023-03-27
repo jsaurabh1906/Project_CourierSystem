@@ -1,4 +1,4 @@
-Pricing.css
+/* Pricing.css */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -38,13 +38,26 @@ Pricing.css
   
   .card-header {
     background-image: linear-gradient( 135deg, #2386ad 10%, #e58558 100%);
-    font-weight: 600;
+    font-weight:bold !important;
     font-style: italic;
     color: #0f010b;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
   }
+  .card-title  {
+    margin-bottom: 20px;
+    color: #120101 !important;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+   h1  {
+    margin-bottom: 20px;
+    color: #120101 !important;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+  
   .card-body{
     background-image: linear-gradient( 135deg, #31f9fc 10%, #584cd9 100%);
-    color: #1a135d;
+    color: #1a135d !important;
     font-weight: 500;
     font-variant: normal;
     text-align: center;
@@ -73,7 +86,8 @@ Pricing.css
     }
 
     .p{
-      font-weight: 300;
+      font-weight: 300 !important;
+      /* font-size: ; */
     }
    
 

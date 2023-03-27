@@ -32,8 +32,13 @@ const Header = () => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <Link to="/" className="navbar-brand">
-              ASP Couriers
+            <Link to="/" className="">
+              <div className="logo">
+                <h2>
+                  <span>A</span>SP
+                  <span>C</span>OURIERS
+                </h2>
+              </div>
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
