@@ -4,8 +4,8 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
 import SystemUserMenu from "../../components/Layout/SystemUserMenu";
-import { Select } from "antd";
-const { Option } = Select;
+//import { Select } from "antd";
+//const { Option } = Select;
 
 const UpdateVehicle = () => {
   const [vehicleType, setVehicleType] = useState("");

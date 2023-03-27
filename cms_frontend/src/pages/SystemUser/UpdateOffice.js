@@ -21,11 +21,11 @@ const initialValue = {
   contact: "",
   address: "",
 };
-const divStyle = {
-  // background: "linear-gradient(to right bottom, #8e72dc, #3e8ece)",
-  //background: 'linear-gradient(to right bottom, #1d2671, #6b1d71, #b11d4c, #ff2f0e, #ffa700)',
-  backgroundColor: "rgb(255 223 246)",
-};
+// const divStyle = {
+//   // background: "linear-gradient(to right bottom, #8e72dc, #3e8ece)",
+//   //background: 'linear-gradient(to right bottom, #1d2671, #6b1d71, #b11d4c, #ff2f0e, #ffa700)',
+//   backgroundColor: "rgb(255 223 246)",
+// };
 const formStyle = {
   //background: "linear-gradient(to bottom right, #a2ded0, #f0a5a5)",
   // background:   "linear-gradient(to right, #4a00e0, #8e2de2, #c55de4, #f87d87, #ffac9c)",
@@ -84,7 +84,8 @@ const UpdateOffice = () => {
 
   useEffect(() => {
     loadOfficeDetails();
-  }, []);
+//eslint-disable-next-line
+  },[]);
 
   const loadOfficeDetails = async () => {
     const response = await getOffices(id);
@@ -98,7 +99,7 @@ const UpdateOffice = () => {
   const updateOfficeDetails = async (e) => {
     //t
     try {
-      const response = await updateOffice(id, office);
+       await updateOffice(id, office);
       navigate("/dashboard/systemUser/offices");
     } catch (error) {}
   };
@@ -132,7 +133,7 @@ const UpdateOffice = () => {
                   onChange={(e) => onValueChange(e)}
                   name="name"
                   style={inputStyle}
-                  value={office.name}
+                  value={name}
                   id="my-input"
                 />
               </FormControl>

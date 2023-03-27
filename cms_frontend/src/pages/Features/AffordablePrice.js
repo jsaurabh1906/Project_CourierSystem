@@ -1,9 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import Layout from "../../components/Layout/Layout";
 import "./AffordablePrice.css";
 export default function AffordablePrice(props) {
   return (
-    <>
+    <Layout>
       <div className="top">
         <div className="main-section1">
           <Container>
@@ -157,6 +158,6 @@ export default function AffordablePrice(props) {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 }

@@ -1,9 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import Layout from "../../components/Layout/Layout";
 import "./ServiceablePincode.css";
 export default function ServiceablePincode(props) {
   return (
-    <>
+    <Layout>
       <div className="top">
         <div className="main-section2">
           <Container>
@@ -168,6 +169,6 @@ export default function ServiceablePincode(props) {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 }

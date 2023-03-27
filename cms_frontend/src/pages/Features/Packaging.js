@@ -1,9 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import Layout from "../../components/Layout/Layout";
 import "./Packaging.css";
 export default function Packaging(props) {
   return (
-    <>
+    <Layout>
       <div className="top">
         <div className="main-section4">
           <Container>
@@ -226,6 +227,6 @@ export default function Packaging(props) {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 }

@@ -1,10 +1,11 @@
 import React from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
+import Layout from "../../components/Layout/Layout";
 import "./CashOnDelivery.css";
 
 export default function CashOnDelivery(props) {
   return (
-    <>
+    <Layout>
       <div className="top">
         <div className="main-section">
           <Container>
@@ -159,6 +160,6 @@ export default function CashOnDelivery(props) {
           </div> */}
         </div>
       </div>
-    </>
+    </Layout>
   );
 }

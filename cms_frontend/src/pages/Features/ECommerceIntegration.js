@@ -1,9 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import Layout from "../../components/Layout/Layout";
 import "./ECommerceIntigration.css";
 export default function ECommerceIntigration(props) {
   return (
-    <>
+    <Layout>
       <div className="top">
         <div className="main-section3">
           <Container>
@@ -87,6 +88,6 @@ export default function ECommerceIntigration(props) {
           height="300"
         ></img>{" "}
       </div>
-    </>
+    </Layout>
   );
 }

@@ -1,9 +1,8 @@
-import react, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Table,
   TableHead,
   TableCell,
-  Paper,
   TableRow,
   TableBody,
   Button,

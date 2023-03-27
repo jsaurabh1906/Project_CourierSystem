@@ -1,9 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import Layout from "../../components/Layout/Layout";
 import "./EmailSMS.css";
 export default function EmailSMS(props) {
     return (
-        <>
+        <Layout>
             <div className="top">
                 <div className="main-section2">
                     <Container>
@@ -45,6 +46,6 @@ export default function EmailSMS(props) {
                 
                 </div>
             </div>
-        </>
+        </Layout>
     );
 }

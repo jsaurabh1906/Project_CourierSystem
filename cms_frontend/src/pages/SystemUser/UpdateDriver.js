@@ -23,11 +23,11 @@ const initialValue = {
   licenseNumber: "",
   role: "deliveryValet",
 };
-const divStyle = {
-  // background: "linear-gradient(to right bottom, #8e72dc, #3e8ece)",
-  //background: 'linear-gradient(to right bottom, #1d2671, #6b1d71, #b11d4c, #ff2f0e, #ffa700)',
-  backgroundColor: "rgb(255 223 246)",
-};
+// const divStyle = {
+//   // background: "linear-gradient(to right bottom, #8e72dc, #3e8ece)",
+//   //background: 'linear-gradient(to right bottom, #1d2671, #6b1d71, #b11d4c, #ff2f0e, #ffa700)',
+//   backgroundColor: "rgb(255 223 246)",
+// };
 const formStyle = {
   //background: "linear-gradient(to bottom right, #a2ded0, #f0a5a5)",
   // background:   "linear-gradient(to right, #4a00e0, #8e2de2, #c55de4, #f87d87, #ffac9c)",
@@ -86,11 +86,12 @@ const UpdateDriver = () => {
 
   useEffect(() => {
     loadDriverDetails();
+//eslint-disable-next-line
   }, []);
 
   const loadDriverDetails = async () => {
     const response = await getDrivers(id);
-    console.log(response);
+    // console.log(response);
     setDriver(response.data);
   };
   const onValueChange = (e) => {
@@ -134,7 +135,7 @@ const UpdateDriver = () => {
                   onChange={(e) => onValueChange(e)}
                   name="firstName"
                   style={inputStyle}
-                  value={driver.firstName}
+                  value={firstName}
                   id="my-input"
                 />
               </FormControl>
@@ -147,7 +148,7 @@ const UpdateDriver = () => {
                   onChange={(e) => onValueChange(e)}
                   style={inputStyle}
                   name="lastName"
-                  value={driver.lastName}
+                  value={lastName}
                   id="my-input"
                 />
               </FormControl>

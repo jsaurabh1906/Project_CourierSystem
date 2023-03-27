@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import {
   FormGroup,
   FormControl,
@@ -79,7 +78,8 @@ const inputStyle = {
 
 const AddDriver = () => {
   const [driver, setDriver] = useState(initialValue);
-  const { firstName, lastName, email, mobileNo, address, licenseNumber, role } =
+  //role?
+  const { firstName, lastName, email, mobileNo, address, licenseNumber} =
     driver;
 
   let navigate = useNavigate();
