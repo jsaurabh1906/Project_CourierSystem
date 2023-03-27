@@ -24,12 +24,13 @@ const initialValue = {
 };
 const divStyle = {
   // background: "linear-gradient(to right bottom, #8e72dc, #3e8ece)",
-   //background: 'linear-gradient(to right bottom, #1d2671, #6b1d71, #b11d4c, #ff2f0e, #ffa700)',
+  //background: 'linear-gradient(to right bottom, #1d2671, #6b1d71, #b11d4c, #ff2f0e, #ffa700)',
   backgroundColor: "rgb(255 223 246)",
 };
 const formStyle = {
   //background: "linear-gradient(to bottom right, #a2ded0, #f0a5a5)",
-  background:   "linear-gradient(to right, #4a00e0, #8e2de2, #c55de4, #f87d87, #ffac9c)",
+  // background:   "linear-gradient(to right, #4a00e0, #8e2de2, #c55de4, #f87d87, #ffac9c)",
+  background: "linear-gradient(to bottom right, #6ebc49, #009ecd)",
 
   padding: "30px",
   borderRadius: "10px",
