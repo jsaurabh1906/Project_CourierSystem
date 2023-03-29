@@ -32,6 +32,7 @@ const Register = () => {
       if (res && res.data.success) {
         console.log(res.data.message);
         toast.success(res.data && res.data.message);
+        sendEmail();
         navigate("/login");
       } else {
         toast.error(res.data.message);
@@ -39,6 +40,26 @@ const Register = () => {
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
+    }
+  };
+
+  const sendEmail = async () => {
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_API}/api/auth/send-email`,
+        {
+          userEmail: email,
+          userName: firstName,
+        }
+      );
+      if (res && res.data.msg) {
+        console.log(res.data.msg);
+      } else {
+        console.log("Email sending failed");
+      }
+    } catch (error) {
+      console.log(error);
+      console.log("Email sending failed");
     }
   };
 

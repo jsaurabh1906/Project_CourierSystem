@@ -32,6 +32,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/office", officeRoutes);
 app.use("/api/vehicle", vehicleRoutes);
 app.use("/api/user", userRoutes);
+// app.use("/api/mail", mailRoutes);
 
 //rest api
 app.get("/", (req, res) => {

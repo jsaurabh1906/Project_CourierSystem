@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-//import axios from "axios";
 import {
   FormGroup,
   FormControl,
@@ -79,7 +78,9 @@ const inputStyle = {
 
 const UpdateDriver = () => {
   const [driver, setDriver] = useState(initialValue);
-  const { firstName, lastName, email, mobileNo, address, licenseNumber, role } =
+  
+  //role?
+  const { firstName, lastName, email, mobileNo, address, licenseNumber } =
     driver;
   const { id } = useParams();
   let navigate = useNavigate();
@@ -101,7 +102,7 @@ const UpdateDriver = () => {
   const updateDriverDetails = async (e) => {
     //t
     try {
-      const response = await updateDriver(id, driver);
+  await updateDriver(id, driver);
       navigate("/dashboard/systemUser/drivers");
     } catch (error) {}
   };

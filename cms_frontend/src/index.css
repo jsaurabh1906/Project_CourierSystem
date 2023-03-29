@@ -29,26 +29,32 @@ font-family: 'Poppins', sans-serif; */
   text-transform: uppercase;
   box-shadow: 0 8px 6px -6px rgb(52, 39, 138);
   --webkit-box-shadow: 0 8px 6px -6px gray;
-  border-bottom: solid gray !important;
-  background: linear-gradient(to right bottom, #6dabb2, #99d3dc);
+  border-bottom: solid rgb(74, 37, 166) !important;
+  background: -webkit-linear-gradient(
+    to right,
+    #92fe9d,
+    #00c9ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
-    106.87deg,
-    #ffbcfb 29.6%,
-    #cfd5ff 51.55%,
-    #f3cdc6 90.9%
-  );
+    to right,
+    #92fe9d,
+    #00c9ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .nav-link {
-  font-weight: 300 !important;
+  font-weight: 500 !important;
+  border-bottom: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.active {
-  border-bottom: 2px solid black;
+.nav-link:hover {
+  border-bottom: 1.5px solid rgb(250, 250, 250);
 }
 
 .navbar-brand {
-  font-weight: 700;
+  font-weight: bolder;
   font-family: "roboto", sans-serif;
   letter-spacing: 3px;
 }
@@ -56,37 +62,31 @@ font-family: 'Poppins', sans-serif; */
 ==========footer============= */
 
 .footer {
-  color: rgb(139, 17, 17);
+  color: rgb(252, 252, 254);
   padding: 25px;
   background: #000000; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #844f4f,
-    #5c2727
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #816363, #381d1d);
   background: linear-gradient(
-    106.87deg,
-    #7499d4 29.6%,
-    #3043ce 51.55%,
-    #4a5b8a 90.9%
-  );
+    to bottom,
+    #2b32b2,
+    #1488cc
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .footer a {
   text-decoration: none;
-  color: rgb(224, 189, 189);
+  color: rgb(255, 255, 255);
   padding: 10px;
-  font-weight: 400;
   font-style: normal;
+  font-size: large;
+  font-variant: normal;
 }
 .footer h1 {
   font-weight: 950;
   font-style: normal;
 }
 .footer a:hover {
-  color: #ffefba;
-  border-bottom: 2px solid #68561a;
+  color: #c0ffba;
+  border-bottom: 2px solid #978e0d;
 }
 /* =================================
 ======== page not found css ======= */

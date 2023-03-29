@@ -1,7 +1,12 @@
 import userModel from "../models/userModel.js";
 import { comparePassword, hashPassword } from "./../helpers/authHelper.js";
 import JWT from "jsonwebtoken";
-
+import dotenv from "dotenv";
+import nodemailer from "nodemailer";
+import Mailgen from "mailgen";
+dotenv.config();
+const EMAIL = process.env.EMAIL;
+const PASSWORD = process.env.PASSWORD;
 export const registerController = async (req, res) => {
   try {
     const { firstName, lastName, email, password, mobileNo, address } =

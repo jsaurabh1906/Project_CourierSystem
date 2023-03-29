@@ -16,7 +16,7 @@
     text-align: center;
     font-weight: 600;
   }
-  
+/*   
   .text-center {
     text-align: center;
   }
@@ -88,8 +88,8 @@
     .p{
       font-weight: 300 !important;
       /* font-size: ; */
-    }
-   
+    /* }
+    */ */
 
   @media screen and (max-width: 768px) {
     .dnd_section_content {

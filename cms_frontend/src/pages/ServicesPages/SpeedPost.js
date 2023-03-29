@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
-import "../CSS/SpeedPost.css";
+// import "../CSS/SpeedPost.css";
 import speedpost from "../images/speedpost.jpg";
 
 function SpeedPost() {

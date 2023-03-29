@@ -74,8 +74,8 @@ const userSchema = new mongoose.Schema(
 
 // autoincrement.initialize(mongoose.connection);
 // userSchema.plugin(autoincrement.plugin, "User");
-// 
-// 
+//
+//
 
 const User = mongoose.model("User", userSchema);
 export default User;
