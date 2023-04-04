@@ -14,7 +14,6 @@ const CreateVehicle = () => {
   const [color, setColor] = useState("");
   const [chassisNumber, setChassisNumber] = useState("");
   const [plateNumber, setPlateNumber] = useState("");
-  //  const [shipping, setShipping] = useState("");
   //const vehicleTypeOptions = ["car", "truck", "van", "suv", "motorcycle"];
   const navigate = useNavigate();
 

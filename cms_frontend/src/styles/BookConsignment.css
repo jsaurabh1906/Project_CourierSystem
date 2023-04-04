@@ -1,0 +1,138 @@
+/* ===== Google Font Import - Poppins ===== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.o {
+  background-color: #e5f6e7;
+}
+.bookingcontainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  /* background-color: rgb(60, 73, 33); */
+}
+
+.bookingcontainer header {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #102c6a;
+  font-style: normal;
+  text-decoration: underline;
+}
+
+.bookingcontainer form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.bookingcontainer .form {
+  width: 100%;
+}
+
+.bookingcontainer form .title {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 6px 0;
+  color: #20a6df;
+}
+.bookingcontainer .details {
+  margin-bottom: 40px;
+  /* background-color: rgb(144, 177, 166); */
+}
+
+.bookingcontainer .details.personal .fields {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.bookingcontainer .details.personal .input-field {
+  width: 48%;
+  margin-bottom: 20px;
+}
+
+.input-field label {
+  color: #050a71;
+  font-size: 25px;
+}
+
+.bookingcontainer .details.ID .fields {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.bookingcontainer .details.ID .input-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.bookingcontainer .input-field label {
+  display: block;
+  font-size: 1.45rem;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.bookingcontainer .input-field input,
+.bookingcontainer .input-field select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: 3px solid #20a6df;
+  box-shadow: none;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.bookingcontainer .submitBtn {
+  background-color: #20a6df;
+  color: #f4eeee;
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.bookingcontainer .submitBtn:hover {
+  background-color: #265df2;
+}
+
+.bookingcontainer .btnText {
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .bookingcontainer .details.personal .input-field {
+    width: 100%;
+  }
+
+  .bookingcontainer .details.ID .input-field {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .bookingcontainer .details.personal .fields,
+  .bookingcontainer .details.ID .fields {
+    display: block;
+  }
+
+  .bookingcontainer .details.personal .input-field,
+  .bookingcontainer .details.ID .input-field {
+    width: 100%;
+  }
+}

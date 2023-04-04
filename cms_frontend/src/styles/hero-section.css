@@ -27,16 +27,29 @@
 }
 
 .order__btn {
-  background: #20a6df;
-  color: #fff;
+  background: transparent;
+  
+  border: 1px solid #20a6df !important;
   transition: 0.3s;
-  font-size: large;
+  font-size: medium;
 }
 
 .order__btn:hover {
-  background: #212245;
+  background: #92fe9d;
 }
 
+.track-btn {
+  background: transparent;
+  border: 1px solid #20a6df !important;
+  font-size: medium;
+}
+
+/* .track-btn a {
+  color: #20a6df;
+} */
+.track-btn:hover {
+  background: #92fe9d;
+}
 .hero__service p {
   color: #212245;
   font-weight: 600;

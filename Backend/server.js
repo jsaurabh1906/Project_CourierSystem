@@ -7,6 +7,7 @@ import authRoutes from "./routes/authRoute.js";
 import officeRoutes from "./routes/officeRoutes.js";
 import vehicleRoutes from "./routes/vehicleRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import bookingRoutes from "./routes/bookingRoutes.js";
 import cors from "cors";
 import formidableMiddleware from "express-formidable-v2";
 import bodyParser from "body-parser";
@@ -32,6 +33,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/office", officeRoutes);
 app.use("/api/vehicle", vehicleRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/booking", bookingRoutes);
 // app.use("/api/mail", mailRoutes);
 
 //rest api
