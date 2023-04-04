@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import "../../styles/BookConsignment.css";
 
 import Layout from "./../Layout/Layout";
@@ -243,10 +244,21 @@ const BookConsignment = () => {
                     />
                   </div>
                 </div>
-                <button className="submitBtn" onClick={() => bookingHandler()}>
+                {/* <button
+                  className="submitBtn"
+                  // onClick={() => bookingHandler()}
+                  onClick={bookingHandler}
+                >
                   <span className="btnText">Submit</span>
-                  {/* <i className="uil uil-navigator" /> */}
-                </button>
+                  {/* <i className="uil uil-navigator" /> 
+                </button> */}
+                <Button className="submitBtn"
+                  variant="contained"
+                  color="primary"
+                  onClick={() => bookingHandler()}
+                >
+                  Confirm Booking
+                </Button>
               </div>
             </div>
           </form>
