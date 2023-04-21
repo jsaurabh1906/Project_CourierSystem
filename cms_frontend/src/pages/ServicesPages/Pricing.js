@@ -54,15 +54,15 @@ const Pricing = () => {
           {plans.map((plan) => (
             <div className="col-md-4 mb-4" key={plan.name}>
               <Card className="h-100">
-                <Card.Header className="text-center">{plan.name}</Card.Header>
+                <Card.Header className="text-center pricingtext">{plan.name}</Card.Header>
                 <Card.Body>
                   <Card.Title
-                    className="text-center"
+                    className="text-center pricingtext"
                     style={{ color: "black" }}
                   >
                     Base Plan
                   </Card.Title>
-                  <Card.Text className="text-center">
+                  <Card.Text className="text-center pricingtext">
                     <h1 style={{ color: "black" }}>₹{plan.basePlan}</h1>
                   </Card.Text>
                   <ul className="asd">
@@ -111,14 +111,14 @@ const Pricing = () => {
                     ))}
                   </ul>
                 </Card.Body>
-                <Card.Footer className="text-center">
+                <Card.Footer className="text-center pricingtext">
                   <Button variant="primary" >Contact Us</Button>
                 </Card.Footer>
               </Card>
             </div>
           ))}
         </div>
-        <div class="dnd_section_content">
+        <div class="dnd_section_content midSection">
           <div class="dnd_container">
             <div class="dnd_column_dd_span12 ">
               <h2 class="cstm-h2 bold-font">

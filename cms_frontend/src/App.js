@@ -41,18 +41,22 @@ import AllDrivers from "./pages/SystemUser/AllDrivers";
 import UpdateDriver from "./pages/SystemUser/UpdateDriver";
 import AllOffices from "./pages/SystemUser/AllOffices";
 import UpdateOffice from "./pages/SystemUser/UpdateOffice";
-import BookConsignment from "./components/Form/BookConsignment";
+import BookConsignment from "./components/Form/BookConsignmentcopy";
 import OrderSummary from "./pages/OrderSummary";
+import Parent from "./Parent";
+//import BookingForm from "./components/Form/BookingForm";
 function App() {
   return (
     <>
       <>
+        {/* <Parent /> */}
         {/* 3:25 */}
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/bookconsignment" element={<BookConsignment />}>
-            <Route path="orderSummary" element={<OrderSummary />} />
-          </Route>
+          <Route path="/bookconsignment" element={<BookConsignment />} />
+          {/* <Route path="/bookconsignment" element={<BookingForm />}> */}
+          <Route path="/orderSummary" element={<OrderSummary />} />
+
           {/* here first private rote will be checked if all right navigate to dashboard */}
           <Route path="/dashboard" element={<PrivateRoute />}>
             <Route path="user" element={<Dashboard />} />

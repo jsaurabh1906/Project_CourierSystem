@@ -11,6 +11,8 @@ import bookingRoutes from "./routes/bookingRoutes.js";
 import cors from "cors";
 import formidableMiddleware from "express-formidable-v2";
 import bodyParser from "body-parser";
+//import Booking from "./models/booking.js";
+//import Booking from "./models/booking.js";
 //configure env
 dotenv.config();
 
@@ -34,6 +36,72 @@ app.use("/api/office", officeRoutes);
 app.use("/api/vehicle", vehicleRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/booking", bookingRoutes);
+//////////////////////////////////////////////////////////////////////////
+
+// app.post("/api/bookings", async (req, res) => {
+//   const {
+//     sender,
+//     recipient,
+//     pickupAddress,
+//     deliveryAddress,
+//     packageType,
+//     weight,
+//     cost,
+//     pickupDate,
+//   } = req.body;
+//   const trackingNumber = generateTrackingNumber();
+//   const status = "booked";
+//   const booking = new Booking({
+//     sender,
+//     recipient,
+//     pickupAddress,
+//     deliveryAddress,
+//     packageType,
+//     weight,
+//     cost,
+//     pickupDate,
+//     trackingNumber,
+//     status,
+//   });
+//   await booking.save();
+//   res.send(booking);
+// });
+
+// app.get("/api/bookings/:trackingNumber", async (req, res) => {
+//   const trackingNumber = req.params.trackingNumber;
+//   const booking = await Booking.findOne({ trackingNumber });
+//   res.send(booking);
+// });
+
+// app.patch("/api/bookings/:trackingNumber", async (req, res) => {
+//   const trackingNumber = req.params.trackingNumber;
+//   const { status, deliveryDate } = req.body;
+//   const booking = await Booking.findOneAndUpdate(
+//     { trackingNumber },
+//     { status, deliveryDate },
+//     { new: true }
+//   );
+//   res.send(booking);
+// });
+
+// function generateTrackingNumber() {
+//   // You could use any method you like to generate tracking numbers
+//   // For example, you could use a combination of letters and numbers
+//   return "ABC123";
+// }
+
+// app.post("/api/booking", async (req, res) => {
+//   try {
+//     const booking = new Booking(req.body);
+//     const savedBooking = await booking.save();
+//     res.json(savedBooking);
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// });
+
+///////////////////////////////////////////////////////////////////////////
+
 // app.use("/api/mail", mailRoutes);
 
 //rest api

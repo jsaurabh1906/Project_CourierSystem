@@ -2,8 +2,6 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
-import SpeedPost from "./../../pages/ServicesPages/SpeedPost";
-import Hyperlocal from "./../../pages/ServicesPages/Hyperlocal";
 
 const Header = () => {
   const [auth, setAuth] = useAuth();

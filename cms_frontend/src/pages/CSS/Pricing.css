@@ -1,35 +1,78 @@
 /* Pricing.css */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  .myhead{
-    background-color: aliceblue;
-    text-align: center;
-    padding-bottom: 0%;
-    margin-bottom: 0%;
-  }
-  .font{
-    padding-top: 0%;
-    background-color: aliceblue;
-    text-align: center;
-    font-weight: 600;
-  }
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.myhead {
+  background-color: aliceblue;
+  text-align: center;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
+}
+.font {
+  padding-top: 0%;
+  background-color: aliceblue;
+  text-align: center;
+  font-weight: 600;
+}
+.pricingtext {
+  text-align: center;
+}
+.card {
+  border: none;
+  box-shadow: 0px 2px 8px rgba(89, 9, 9, 0.1);
+}
+
+.card-header {
+  background-image: linear-gradient(135deg, #584cd9 10%, #31f9fc 100%);
+  font-weight: bolder !important;
+  font-style: italic;
+  font-size: 20px;
+  color: #3c0d2f;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.card-title {
+  margin-bottom: 20px;
+  color: #580d0d !important;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.card-body {
+  background-image: linear-gradient(135deg, #31f9fc 10%, #584cd9 100%);
+  color: #1a135d !important;
+  font-weight: 400;
+  font-size: 15px;
+  /* font-variant: normal; */
+  text-align: center;
+}
+.card-footer {
+  background-color: #22384e;
+}
+.card-body ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.card-body li {
+  margin-bottom: 5px;
+}
+
+.midSection h2, li{
+  
+  text-align: center;
+  justify-content: center;
+  
+}
+
+ 
+
+.midSection p{
+  font-size: 13px;
+ } 
+
 /*   
-  .text-center {
-    text-align: center;
-  }
-  
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
-  
-  li {
-    margin-bottom: 5px;
-  }
   
   .card {
     border: none;
@@ -88,49 +131,45 @@
     .p{
       font-weight: 300 !important;
       /* font-size: ; */
-    /* }
-    */ */
-
-  @media screen and (max-width: 768px) {
-    .dnd_section_content {
+/* }
+    */
+@media screen and (max-width: 768px) {
+  .dnd_section_content {
     padding: 20px;
-    
-    }
-    .dnd_container {
+  }
+  .dnd_container {
     max-width: 100%;
     margin: 0 auto;
-    
-    }
-    .dnd_column_dd_span12 {
+  }
+  .dnd_column_dd_span12 {
     flex-wrap: wrap;
-    
-    }
-    .exclusive-features {
+  }
+  .exclusive-features {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    }
-    .flex-flow-col {
+  }
+  .flex-flow-col {
     width: 100%;
     margin-bottom: 20px;
-    }
-    .right-side {
+  }
+  .right-side {
     margin-top: 20px;
     text-align: center;
-    }
-    .center-align {
+  }
+  .center-align {
     text-align: center;
-    }
-    .wp-block-image {
+  }
+  .wp-block-image {
     margin-bottom: 10px;
-    }
-    .cstm-h2 {
+  }
+  .cstm-h2 {
     font-size: 24px;
     line-height: 1.2;
     margin-bottom: 30px;
-    }
-    .text-primry {
+  }
+  .text-primry {
     color: #0038a8;
-    }
-    }
+  }
+}

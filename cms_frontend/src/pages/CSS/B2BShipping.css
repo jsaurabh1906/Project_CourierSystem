@@ -39,9 +39,10 @@
 }
 
 .b2b-shipping li {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 350;
   line-height: 1.5;
+  text-align: left;
 }
 
 .b2b-shipping h3 {

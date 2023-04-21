@@ -1,8 +1,13 @@
 import express from "express";
-import { addBookingController } from "../controllers/bookingController.js";
+import {
+  addBookingController,
+  getBookingController,
+  updateBookingController,
+} from "../controllers/bookingController.js";
 
 const router = express.Router();
 
 router.post("/", addBookingController);
-
+router.get("/:id", getBookingController);
+router.patch("/:trackingNumber", updateBookingController);
 export default router;
