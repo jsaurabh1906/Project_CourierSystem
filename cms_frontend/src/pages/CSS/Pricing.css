@@ -59,18 +59,15 @@
   margin-bottom: 5px;
 }
 
-.midSection h2, li{
-  
+.midSection h2,
+li {
   text-align: center;
   justify-content: center;
-  
 }
 
- 
-
-.midSection p{
+.midSection p {
   font-size: 13px;
- } 
+}
 
 /*   
   
@@ -130,9 +127,8 @@
 
     .p{
       font-weight: 300 !important;
-      /* font-size: ; */
-/* }
-    */
+      /* font-size: ;} */
+
 @media screen and (max-width: 768px) {
   .dnd_section_content {
     padding: 20px;

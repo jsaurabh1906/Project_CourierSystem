@@ -1,11 +1,11 @@
- .mainsection{
-    display: flex;
-    background-color: yellow;
-    justify-content: space-around;
-    align-items: center;
-     background: transparent linear-gradient(264deg, #947FFC 0%, #684DF4 100%); 
- }
- 
+.mainsection {
+  display: flex;
+  background-color: yellow;
+  justify-content: space-around;
+  align-items: center;
+  background: transparent linear-gradient(264deg, #947ffc 0%, #684df4 100%);
+}
+
 /* .contentbox{
     width:30%;
     background-color: aqua;
@@ -44,4 +44,5 @@
     height: 250px;
     margin-right: 25px;
     display: contents;
-    box-sizing: content-box; *}/
+    box-sizing: content-box; }
+    */

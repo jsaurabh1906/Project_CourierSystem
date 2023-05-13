@@ -8,9 +8,11 @@ import officeRoutes from "./routes/officeRoutes.js";
 import vehicleRoutes from "./routes/vehicleRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import bookingRoutes from "./routes/bookingRoutes.js";
+
 import cors from "cors";
 import formidableMiddleware from "express-formidable-v2";
 import bodyParser from "body-parser";
+import path from "path";
 //import Booking from "./models/booking.js";
 //import Booking from "./models/booking.js";
 //configure env
@@ -29,7 +31,7 @@ app.use(morgan("dev"));
 app.use(formidableMiddleware());
 app.use(bodyParser.json({ extende: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(express.static(path.join(__dirname, "../cms_frontend/build")));
 //routes
 app.use("/api/auth", authRoutes);
 app.use("/api/office", officeRoutes);
@@ -105,10 +107,12 @@ app.use("/api/booking", bookingRoutes);
 // app.use("/api/mail", mailRoutes);
 
 //rest api
-app.get("/", (req, res) => {
-  res.send("<h1>Welcome to ASP COURIERS</h1>");
+// app.get("/", (req, res) => {
+//   res.send("<h1>Welcome to ASP COURIERS</h1>");
+// });
+app.use("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "../cms_frontend/build/index.html"));
 });
-
 //PORT
 const PORT = process.env.PORT || 8080;
 

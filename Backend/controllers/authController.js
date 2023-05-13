@@ -162,7 +162,7 @@ export const forgotPasswordController = (req, res) => {
 export const resetPasswordController = (req, res) => {
   const { email, otp, newPassword } = req.body;
 
-  User.findOne({ email }).then((user) => {
+   User.findOne({ email }).then((user) => {
     if (!user) {
       return res.status(400).json({ message: "User not found" });
     }
